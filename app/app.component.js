@@ -9,16 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var DisclosureService_1 = require('./model/disclosure/DisclosureService');
-var ClientService_1 = require('./model/client/ClientService');
-var AssetClassificationService_1 = require('./model/assetClassification/AssetClassificationService');
-var IndustryOrderService_1 = require('./model/industryOrder/IndustryOrderService');
+var DataService_1 = require('./services/DataService');
 var AppComponent = (function () {
-    function AppComponent(disclosureService, clientService, assetClassificationService, industryOrderService) {
-        this.disclosureService = disclosureService;
-        this.clientService = clientService;
-        this.assetClassificationService = assetClassificationService;
-        this.industryOrderService = industryOrderService;
+    function AppComponent(dataService) {
+        this.dataService = dataService;
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -26,13 +20,13 @@ var AppComponent = (function () {
         this.clients = [];
         //this.selectedDisclosure = "Please select the Disclosure";
         console.log("hello reached init");
-        this.disclosureService.getDisclosureData()
+        this.dataService.getDisclosureData()
             .then(function (discs) { return _this.discs = discs; });
-        this.clientService.getClientData()
+        this.dataService.getClientData()
             .then(function (clients) { return _this.clients = clients; });
-        this.assetClassificationService.getAssetClassificationData()
+        this.dataService.getAssetClassificationData()
             .then(function (assets) { return _this.assets = assets; });
-        this.industryOrderService.getIndustryOrderData()
+        this.dataService.getIndustryOrderData()
             .then(function (industry) { return _this.industry = industry; });
     };
     AppComponent = __decorate([
@@ -40,7 +34,7 @@ var AppComponent = (function () {
             templateUrl: 'app/app.component.html',
             selector: 'my-app'
         }), 
-        __metadata('design:paramtypes', [DisclosureService_1.DisclosureService, ClientService_1.ClientService, AssetClassificationService_1.AssetClassificationService, IndustryOrderService_1.IndustryOrderService])
+        __metadata('design:paramtypes', [DataService_1.DataService])
     ], AppComponent);
     return AppComponent;
 }());

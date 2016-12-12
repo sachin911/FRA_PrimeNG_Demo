@@ -5,16 +5,14 @@ import {BrowserModule} from '@angular/platform-browser';
 import 'rxjs/add/operator/toPromise';
 
 import {AppComponent}  from './app.component';
-import {DisclosureService} from './model/disclosure/DisclosureService';
-import {ClientService} from './model/client/ClientService';
-import {AssetClassificationService} from './model/assetClassification/AssetClassificationService';
-import {IndustryOrderService} from './model/industryOrder/IndustryOrderService';
+
+import {DataService} from './services/DataService';
 import {InputTextModule,DataTableModule,ButtonModule,DialogModule,DropdownModule} from 'primeng/primeng';
 
 @NgModule({
   imports:      [BrowserModule,FormsModule,HttpModule,InputTextModule,DataTableModule,ButtonModule,DialogModule,DropdownModule],
   declarations: [AppComponent],
   bootstrap:    [AppComponent],
-  providers:    [DisclosureService, ClientService, AssetClassificationService, IndustryOrderService]
+  providers:    [DataService]
 })
 export class AppModule { }

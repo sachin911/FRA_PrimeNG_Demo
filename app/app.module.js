@@ -14,10 +14,7 @@ var http_1 = require('@angular/http');
 var platform_browser_1 = require('@angular/platform-browser');
 require('rxjs/add/operator/toPromise');
 var app_component_1 = require('./app.component');
-var DisclosureService_1 = require('./model/disclosure/DisclosureService');
-var ClientService_1 = require('./model/client/ClientService');
-var AssetClassificationService_1 = require('./model/assetClassification/AssetClassificationService');
-var IndustryOrderService_1 = require('./model/industryOrder/IndustryOrderService');
+var DataService_1 = require('./services/DataService');
 var primeng_1 = require('primeng/primeng');
 var AppModule = (function () {
     function AppModule() {
@@ -27,7 +24,7 @@ var AppModule = (function () {
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, primeng_1.InputTextModule, primeng_1.DataTableModule, primeng_1.ButtonModule, primeng_1.DialogModule, primeng_1.DropdownModule],
             declarations: [app_component_1.AppComponent],
             bootstrap: [app_component_1.AppComponent],
-            providers: [DisclosureService_1.DisclosureService, ClientService_1.ClientService, AssetClassificationService_1.AssetClassificationService, IndustryOrderService_1.IndustryOrderService]
+            providers: [DataService_1.DataService]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

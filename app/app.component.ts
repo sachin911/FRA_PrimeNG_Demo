@@ -1,11 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Disclosure} from './model/disclosure/Disclosure';
-import {DisclosureService} from './model/disclosure/DisclosureService';
-import {ClientService} from './model/client/ClientService';
-import {Client} from './model/client/Client';
-import {AssetClassification} from './model/assetClassification/AssetClassification';
-import {AssetClassificationService} from './model/assetClassification/AssetClassificationService';
-import {IndustryOrderService} from './model/industryOrder/IndustryOrderService';
+import {DataService} from './services/DataService';
 import {SelectItem} from 'primeng/primeng';
 
 @Component({
@@ -20,25 +14,23 @@ export class AppComponent implements OnInit {
 	assets : SelectItem[];
 	industry : SelectItem[];
 	selectedDisclosure : string;
-	constructor(private disclosureService : DisclosureService,
-	 private clientService : ClientService, private assetClassificationService : AssetClassificationService
-	 ,private industryOrderService : IndustryOrderService) {}
+	constructor(private dataService : DataService) {}
 
 	ngOnInit() {
 		this.discs = [];
 		this.clients = [];
 		//this.selectedDisclosure = "Please select the Disclosure";
 		console.log("hello reached init");
-		this.disclosureService.getDisclosureData()
+		this.dataService.getDisclosureData()
 			.then(discs => this.discs = discs);
 
-		this.clientService.getClientData()
+		this.dataService.getClientData()
 			.then(clients => this.clients = clients);
 
-		this.assetClassificationService.getAssetClassificationData()
+		this.dataService.getAssetClassificationData()
 			.then(assets => this.assets = assets);
 
-		this.industryOrderService.getIndustryOrderData()
+		this.dataService.getIndustryOrderData()
 			.then(industry => this.industry = industry);
 
 	}
