@@ -9,7 +9,7 @@
     "removeComments": false,
     "noImplicitAny": false,
     "outDir": "./dist/",
-    "noImplicitAny": true,
+   // "noImplicitAny": true,
     "jsx": "react"
   },
   "include": [

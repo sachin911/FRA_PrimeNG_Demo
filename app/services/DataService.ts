@@ -13,6 +13,7 @@ export class DataService {
 	private assetUrl = "app/resources/data/assetData.json";
 
 	result : SelectItem[];
+	discList : Disclosure[];
 	constructor( private http : Http) {
 
 	}
@@ -39,6 +40,7 @@ export class DataService {
 		this.result.push({label : 'None' , value : 'None' });
 		this.result.push({label: 'Technology', value: {industry_id : 1, industry_name: 'Technology', industry_order_id : 1, sort_order: 1}});
 		this.result.push({label: 'HealthCare', value: {industry_id : 2, industry_name: 'HealthCare', industry_order_id : 2, sort_order: 2}});
+		
 		return this.result;
 	}
 
@@ -59,11 +61,14 @@ export class DataService {
 
 
 	getDisclosureHardData(){
-		this.result = [];
-		this.result.push({label : 'None' , value : 'None' });
-		this.result.push({label: 'ASC820 Disclosure', value: {d_id : 1, type: 'ASC820 Disclosure'}});
-		this.result.push({label: 'ASC2011_4 Disclosure', value: {d_id : 2, type: 'ASC2011_4 Disclosure'}}); 
-		return this.result;
+		this.discList = [];
+		// this.result.push({label : 'None' , value : 'None' });
+		// this.result.push({label: 'ASC820 Disclosure', value: {d_id : 1, type: 'ASC820 Disclosure'}});
+		// this.result.push({label: 'ASC2011_4 Disclosure', value: {d_id : 2, type: 'ASC2011_4 Disclosure'}}); 
+		
+		this.discList.push({d_id : 1, type: 'ASC820 Disclosure'});
+		this.discList.push({d_id : 2, type: 'ASC2011_4 Disclosure'});
+		return this.discList;
 	}
 
 

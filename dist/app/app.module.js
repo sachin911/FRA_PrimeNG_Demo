@@ -23,7 +23,7 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, primeng_1.InputTextModule, primeng_1.DataTableModule, primeng_1.ButtonModule, primeng_1.DialogModule, primeng_1.DropdownModule],
+        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, primeng_1.InputTextModule, primeng_1.DataTableModule, primeng_1.ButtonModule, primeng_1.DialogModule, primeng_1.DropdownModule, forms_1.ReactiveFormsModule],
         declarations: [app_component_1.AppComponent],
         bootstrap: [app_component_1.AppComponent],
         providers: [DataService_1.DataService]
