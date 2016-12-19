@@ -28,7 +28,8 @@
     </li>
     <li>
     <span class="first">Industry Order : </span>
-    <p-dropdown [options]="industry" [(ngModel)]="selectedIndustry"></p-dropdown>
+<!--     <p-dropdown [options]="industry" [(ngModel)]="selectedIndustry"></p-dropdown> -->
+        <dynamic-form [dform] = "dforms"></dynamic-form>
     </li>
 </UL>
 

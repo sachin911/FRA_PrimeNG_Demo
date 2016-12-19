@@ -2,10 +2,12 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {DataService} from './services/DataService';
 import {SelectItem} from 'primeng/primeng';
 import {Disclosure} from './model/disclosure/Disclosure';
+import {DynamicService} from './services/DynamicService';
 
 @Component({
 	templateUrl : 'app/app.component.html',
-	selector : 'my-app'
+	selector : 'my-app',
+	providers : [DynamicService]
 })
 
 
