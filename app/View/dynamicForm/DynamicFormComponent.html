@@ -2,12 +2,8 @@
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
 
     <div *ngFor="let dynamicDisc of dynamicDiscs" class="form-row">
-      <df-dropDown [dynamicDisc]="dynamicDisc" [form]="form"></df-dropDown>
+      <df-dropDown [dynamicDiscs]="dynamicDisc" [form]="form"></df-dropDown>
     </div>
-
-	<!-- <div class="form-row">
-	  <df-dropDown [dynamicDiscs]="dynamicDiscs" [form]="form"></df-dropDown>
-	</div> -->
 
     <div class="form-row">
       <button type="submit" [disabled]="!form.valid">Save</button>

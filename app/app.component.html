@@ -33,18 +33,18 @@
     </li> -->
 </UL>
 
+<p>Selected Client: {{selectedClient ? selectedClient.name : 'none'}}</p>
+<p>Selected Disclosure: {{selectedDisclosure ? selectedDisclosure.type : 'none'}}</p>
+<p>Selected Asset: {{selectedAsset ? selectedAsset.name : 'none'}}</p>
+<p>Selected Industry: {{selectedIndustry ? selectedIndustry.industry_name: 'none'}}</p>
+
+
 <div>
     <h2>This is the Dynamic Form</h2>
     <dynamic-form [dynamicDisc]="dynamicDisc"></dynamic-form>
 </div>
 
 
-
-
-<p>Selected Client: {{selectedClient ? selectedClient.name : 'none'}}</p>
-<p>Selected Disclosure: {{selectedDisclosure ? selectedDisclosure.type : 'none'}}</p>
-<p>Selected Asset: {{selectedAsset ? selectedAsset.name : 'none'}}</p>
-<p>Selected Industry: {{selectedIndustry ? selectedIndustry.industry_name: 'none'}}</p>
 
 <div id="container">
   <!-- This element's contents will be replaced with your component. -->

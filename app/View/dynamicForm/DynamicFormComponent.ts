@@ -3,7 +3,7 @@ import {FormGroup} from "@angular/forms";
 
 import {DynamicFormBase} from "../../model/dynamicForm/DynamicFormBase";
 import {DynamicFormControlService} from "../../services/DynamicFormControlService";
-import {DynamicDropDownComponent} from "./dynamicForm/DynamicDropDownComponent"
+import {DynamicFormDropDown} from "../../model/dynamicForm/DynamicFormDropDown";
 
 @Component({
 	// moduleId: module.id,

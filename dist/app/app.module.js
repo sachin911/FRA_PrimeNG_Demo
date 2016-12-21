@@ -16,6 +16,8 @@ require("rxjs/add/operator/toPromise");
 var app_component_1 = require("./app.component");
 var DataService_1 = require("./services/DataService");
 var primeng_1 = require("primeng/primeng");
+var DynamicFormComponent_1 = require("./View/dynamicForm/DynamicFormComponent");
+var DynamicDropDownComponent_1 = require("./View/dynamicForm/DynamicDropDownComponent");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,7 +26,8 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, primeng_1.InputTextModule, primeng_1.DataTableModule, primeng_1.ButtonModule, primeng_1.DialogModule, primeng_1.DropdownModule, forms_1.ReactiveFormsModule],
-        declarations: [app_component_1.AppComponent],
+        declarations: [app_component_1.AppComponent, DynamicFormComponent_1.DynamicFormComponent, DynamicDropDownComponent_1.DynamicDropDownComponent],
+        exports: [DynamicFormComponent_1.DynamicFormComponent, DynamicDropDownComponent_1.DynamicDropDownComponent],
         bootstrap: [app_component_1.AppComponent],
         providers: [DataService_1.DataService]
     }),
