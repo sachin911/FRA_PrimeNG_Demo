@@ -1,0 +1,16 @@
+<div [formGroup]="form">
+  <label [attr.for]="dynamicDisc.key">{{dynamicDisc.label}}</label>
+
+  <div [ngSwitch]="dynamicDisc.controlType">
+
+    <input *ngSwitchCase="'textbox'" [formControlName]="dynamicDisc.key"
+            [id]="dynamicDisc.key" [type]="dynamicDisc.type">
+
+    <select [id]="dynamicDisc.key" *ngSwitchCase="'dropdown'" [formControlName]="dynamicDisc.key">
+      <option *ngFor="let opt of dynamicDisc.options" [value]="opt.key">{{opt.value}}</option>
+    </select>
+
+  </div>
+
+  <div class="errorMessage" *ngIf="!isValid">{{dynamicDisc.label}} is required</div>
+</div>

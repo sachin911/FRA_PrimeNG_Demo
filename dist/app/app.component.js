@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var DataService_1 = require("./services/DataService");
+var DynamicService_1 = require("./services/DynamicService");
 var AppComponent = (function () {
     function AppComponent(dataService) {
         this.dataService = dataService;
@@ -18,7 +19,11 @@ var AppComponent = (function () {
         var _this = this;
         this.discs = [];
         this.clients = [];
+        this.disclosure = [];
         //this.selectedDisclosure = "Please select the Disclosure";
+        this.disclosure = this.dataService.getDisclosureHardData();
+        console.log("datatable");
+        console.log(this.disclosure);
         console.log("hello reached init");
         this.dataService.getDisclosureData()
             .then(function (discs) { return _this.discs = discs; });
@@ -33,8 +38,9 @@ var AppComponent = (function () {
 }());
 AppComponent = __decorate([
     core_1.Component({
+        selector: 'my-app',
         templateUrl: 'app/app.component.html',
-        selector: 'my-app'
+        providers: [DynamicService_1.DynamicService]
     }),
     __metadata("design:paramtypes", [DataService_1.DataService])
 ], AppComponent);

@@ -1,30 +1,35 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {DataService} from './services/DataService';
-import {SelectItem} from 'primeng/primeng';
-import {Disclosure} from './model/disclosure/Disclosure';
-import {DynamicService} from './services/DynamicService';
+import {Component, OnInit, ViewEncapsulation, Input} from "@angular/core";
+import {DataService} from "./services/DataService";
+import {SelectItem} from "primeng/primeng";
+import {Disclosure} from "./model/disclosure/Disclosure";
+import {DynamicService} from "./services/DynamicService";
+import {DynamicFormBase} from "./model/dynamicForm/DynamicFormBase";
 
 @Component({
-	templateUrl : 'app/app.component.html',
-	selector : 'my-app',
-	providers : [DynamicService]
+	selector: "my-app",
+	templateUrl: "app/app.component.html",
+	providers: [DynamicService]
 })
 
-
 export class AppComponent implements OnInit {
-	discs : SelectItem[];
-	clients : SelectItem[];
-	assets : SelectItem[];
-	industry : SelectItem[];
-	disclosure : Disclosure[];
-	selectedDisclosure : string;
-	constructor(private dataService : DataService) {}
+	@Input()
+	dynamicDisc: DynamicFormBase<any>[] = [];
+	// form : FormGroup;
+	discs: SelectItem[];
+	clients: SelectItem[];
+	assets: SelectItem[];
+	industry: SelectItem[];
+	disclosure: Disclosure[];
+	selectedDisclosure: string;
+	// dynamicDisc: any[];
+	constructor(private dataService: DataService,
+	private dynamicService: DynamicService) {}
 
 	ngOnInit() {
 		this.discs = [];
 		this.clients = [];
 		this.disclosure = [];
-		//this.selectedDisclosure = "Please select the Disclosure";
+		// this.selectedDisclosure = "Please select the Disclosure";
 
 		this.disclosure = this.dataService.getDisclosureHardData();
 		console.log("datatable");
@@ -41,6 +46,9 @@ export class AppComponent implements OnInit {
 
 		this.dataService.getIndustryOrderData()
 			.then(industry => this.industry = industry);
+
+		// this could be in the constructor. I am checking if it works onInit as well
+		this.dynamicDisc = this.dynamicService.getDropDownOptions();
 
 	}
 

@@ -26,12 +26,17 @@
     <span class="first">Asset Classification : </span>
     <p-dropdown [options]="assets" [(ngModel)]="selectedAsset"></p-dropdown>
     </li>
-    <li>
+    <!-- <li>
     <span class="first">Industry Order : </span>
-<!--     <p-dropdown [options]="industry" [(ngModel)]="selectedIndustry"></p-dropdown> -->
-        <dynamic-form [dform] = "dforms"></dynamic-form>
-    </li>
+        <p-dropdown [options]="industry" [(ngModel)]="selectedIndustry"></p-dropdown>
+        <df-dropDown [dynamicDD] = "dynamicDD"></df-dropDown>
+    </li> -->
 </UL>
+
+<div>
+    <h2>This is the Dynamic Form</h2>
+    <dynamic-form [dynamicDisc]="dynamicDisc"></dynamic-form>
+</div>
 
 
 

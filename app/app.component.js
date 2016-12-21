@@ -8,17 +8,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var DataService_1 = require('./services/DataService');
+var core_1 = require("@angular/core");
+var DataService_1 = require("./services/DataService");
+var DynamicService_1 = require("./services/DynamicService");
 var AppComponent = (function () {
-    function AppComponent(dataService) {
+    // dynamicDisc: any[];
+    function AppComponent(dataService, dynamicService) {
         this.dataService = dataService;
+        this.dynamicService = dynamicService;
+        this.dynamicDisc = [];
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.discs = [];
         this.clients = [];
-        //this.selectedDisclosure = "Please select the Disclosure";
+        this.disclosure = [];
+        // this.selectedDisclosure = "Please select the Disclosure";
+        this.disclosure = this.dataService.getDisclosureHardData();
+        console.log("datatable");
+        console.log(this.disclosure);
         console.log("hello reached init");
         this.dataService.getDisclosureData()
             .then(function (discs) { return _this.discs = discs; });
@@ -28,15 +36,23 @@ var AppComponent = (function () {
             .then(function (assets) { return _this.assets = assets; });
         this.dataService.getIndustryOrderData()
             .then(function (industry) { return _this.industry = industry; });
+        // this could be in the constructor. I am checking if it works onInit as well
+        this.dynamicDisc = this.dynamicService.getDropDownOptions();
     };
-    AppComponent = __decorate([
-        core_1.Component({
-            templateUrl: 'app/app.component.html',
-            selector: 'my-app'
-        }), 
-        __metadata('design:paramtypes', [DataService_1.DataService])
-    ], AppComponent);
     return AppComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Array)
+], AppComponent.prototype, "dynamicDisc", void 0);
+AppComponent = __decorate([
+    core_1.Component({
+        selector: "my-app",
+        templateUrl: "app/app.component.html",
+        providers: [DynamicService_1.DynamicService]
+    }),
+    __metadata("design:paramtypes", [DataService_1.DataService,
+        DynamicService_1.DynamicService])
+], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

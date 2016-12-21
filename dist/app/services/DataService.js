@@ -57,11 +57,13 @@ var DataService = (function () {
         });
     };
     DataService.prototype.getDisclosureHardData = function () {
-        this.result = [];
-        this.result.push({ label: 'None', value: 'None' });
-        this.result.push({ label: 'ASC820 Disclosure', value: { d_id: 1, type: 'ASC820 Disclosure' } });
-        this.result.push({ label: 'ASC2011_4 Disclosure', value: { d_id: 2, type: 'ASC2011_4 Disclosure' } });
-        return this.result;
+        this.discList = [];
+        // this.result.push({label : 'None' , value : 'None' });
+        // this.result.push({label: 'ASC820 Disclosure', value: {d_id : 1, type: 'ASC820 Disclosure'}});
+        // this.result.push({label: 'ASC2011_4 Disclosure', value: {d_id : 2, type: 'ASC2011_4 Disclosure'}}); 
+        this.discList.push({ d_id: 1, type: 'ASC820 Disclosure' });
+        this.discList.push({ d_id: 2, type: 'ASC2011_4 Disclosure' });
+        return this.discList;
     };
     DataService.prototype.getClientData = function () {
         var _this = this;
