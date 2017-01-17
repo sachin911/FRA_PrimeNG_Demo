@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
 var DataService = (function () {
     function DataService(http) {
         this.http = http;
@@ -17,20 +17,20 @@ var DataService = (function () {
         this.assetUrl = "app/resources/data/assetData.json";
     }
     DataService.prototype.getIndustryOrderData = function () {
-        var _this = this;
         return this.http.get('app/resources/data/industryOrderData.json')
             .toPromise()
             .then(function (res) { return res.json().data; })
             .then(function (data) {
-            _this.result = [];
-            console.log("this is the IndustryOrder service");
-            for (var i = 0; i < data.length; i++) {
-                console.log(data[i]);
-                _this.result[i] = ({ label: data[i].industry_name, value: data[i] });
-            }
-            console.log("---Industry dropDown---");
-            console.log(_this.result);
-            return _this.result;
+            // this.result = [];
+            // console.log("this is the IndustryOrder service");
+            // for(var i=0; i< data.length; i++){
+            // 	console.log(data[i]);
+            // 	this.result[i]=({label:data[i].industry_name, value:data[i]});
+            // }
+            // console.log("---Industry dropDown---");
+            // console.log(this.result);
+            // return this.result;
+            return data;
         });
     };
     DataService.prototype.getIndustryOrderHardData = function () {
@@ -115,11 +115,11 @@ var DataService = (function () {
         this.result.push({ label: 'Bank Debt', value: { asset_id: 4, name: 'Bank Debt', order: 1 } });
         return this.result;
     };
-    DataService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], DataService);
     return DataService;
 }());
+DataService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], DataService);
 exports.DataService = DataService;
 //# sourceMappingURL=DataService.js.map

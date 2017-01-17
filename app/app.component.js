@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var DataService_1 = require('./services/DataService');
+var core_1 = require("@angular/core");
+var DataService_1 = require("./services/DataService");
 var AppComponent = (function () {
     function AppComponent(dataService) {
         this.dataService = dataService;
@@ -20,23 +20,34 @@ var AppComponent = (function () {
         this.clients = [];
         //this.selectedDisclosure = "Please select the Disclosure";
         console.log("hello reached init");
-        this.dataService.getDisclosureData()
-            .then(function (discs) { return _this.discs = discs; });
-        this.dataService.getClientData()
-            .then(function (clients) { return _this.clients = clients; });
-        this.dataService.getAssetClassificationData()
-            .then(function (assets) { return _this.assets = assets; });
+        // this.dataService.getDisclosureData()
+        // 	.then(discs => this.discs = discs);
+        // this.dataService.getClientData()
+        // 	.then(clients => this.clients = clients);
+        // this.dataService.getAssetClassificationData()
+        // 	.then(assets => this.assets = assets);
         this.dataService.getIndustryOrderData()
-            .then(function (industry) { return _this.industry = industry; });
+            .then(function (data) {
+            //this.industry = industry
+            _this.industry = [];
+            console.log("this is the IndustryOrder app component");
+            for (var i = 0; i < data.length; i++) {
+                console.log(data[i]);
+                _this.industry[i] = ({ label: data[i].industry_name, value: data[i] });
+            }
+            console.log("---Industry dropDown---");
+            console.log(_this.industry);
+            //return this.result;
+        });
     };
-    AppComponent = __decorate([
-        core_1.Component({
-            templateUrl: 'app/app.component.html',
-            selector: 'my-app'
-        }), 
-        __metadata('design:paramtypes', [DataService_1.DataService])
-    ], AppComponent);
     return AppComponent;
 }());
+AppComponent = __decorate([
+    core_1.Component({
+        templateUrl: 'app/app.component.html',
+        selector: 'my-app'
+    }),
+    __metadata("design:paramtypes", [DataService_1.DataService])
+], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

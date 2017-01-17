@@ -17,21 +17,9 @@ var DataService = (function () {
         this.assetUrl = "app/resources/data/assetData.json";
     }
     DataService.prototype.getIndustryOrderData = function () {
-        var _this = this;
         return this.http.get('app/resources/data/industryOrderData.json')
             .toPromise()
-            .then(function (res) { return res.json().data; })
-            .then(function (data) {
-            _this.result = [];
-            console.log("this is the IndustryOrder service");
-            for (var i = 0; i < data.length; i++) {
-                console.log(data[i]);
-                _this.result[i] = ({ label: data[i].industry_name, value: data[i] });
-            }
-            console.log("---Industry dropDown---");
-            console.log(_this.result);
-            return _this.result;
-        });
+            .then(function (res) { return res.json().data; });
     };
     DataService.prototype.getIndustryOrderHardData = function () {
         this.result = [];

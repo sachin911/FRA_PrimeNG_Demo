@@ -19,19 +19,20 @@ export class DataService {
 
 	getIndustryOrderData(){
 		return this.http.get('app/resources/data/industryOrderData.json')
-						.toPromise()
-						.then(res => <IndustryOrder[]> res.json().data)
-						.then(data => { 
-							this.result = [];
-							console.log("this is the IndustryOrder service");
-							for(var i=0; i< data.length; i++){
-								console.log(data[i]);
-								this.result[i]=({label:data[i].industry_name, value:data[i]});
-							}
-							console.log("---Industry dropDown---");
-							console.log(this.result);
-							return this.result;
-						});
+			.toPromise()
+			.then(res => <IndustryOrder[]> res.json().data)
+			.then(data => {
+				// this.result = [];
+				// console.log("this is the IndustryOrder service");
+				// for(var i=0; i< data.length; i++){
+				// 	console.log(data[i]);
+				// 	this.result[i]=({label:data[i].industry_name, value:data[i]});
+				// }
+				// console.log("---Industry dropDown---");
+				// console.log(this.result);
+				// return this.result;
+				return data;
+			});
 	}
 
 	getIndustryOrderHardData(){
@@ -46,7 +47,7 @@ export class DataService {
 		return this.http.get(this.discUrl)
 						.toPromise()
 						.then(res => <Disclosure[]> res.json().data)
-						.then(data => { 
+						.then(data => {
 							this.result = [];
 							console.log("this is the Disclosure service");
 							for(var i=0; i< data.length; i++){
@@ -62,7 +63,7 @@ export class DataService {
 		this.result = [];
 		this.result.push({label : 'None' , value : 'None' });
 		this.result.push({label: 'ASC820 Disclosure', value: {d_id : 1, type: 'ASC820 Disclosure'}});
-		this.result.push({label: 'ASC2011_4 Disclosure', value: {d_id : 2, type: 'ASC2011_4 Disclosure'}}); 
+		this.result.push({label: 'ASC2011_4 Disclosure', value: {d_id : 2, type: 'ASC2011_4 Disclosure'}});
 		return this.result;
 	}
 
@@ -71,7 +72,7 @@ export class DataService {
 		return this.http.get('app/resources/data/clientData.json')
 						.toPromise()
 						.then(res => <Client[]> res.json().data)
-						.then(data => { 
+						.then(data => {
 							this.result = [];
 							console.log("this is the Client service");
 							for(var i=0; i< data.length; i++){
@@ -86,7 +87,7 @@ export class DataService {
 		this.result = [];
 		this.result.push({label : 'None' , value : 'None' });
 		this.result.push({label: 'OZ', value: {c_id : 1, name: 'QZ'}});
-		this.result.push({label: 'AQR', value: {c_id : 2, name: 'AQR'}}); 
+		this.result.push({label: 'AQR', value: {c_id : 2, name: 'AQR'}});
 		return this.result;
 	}
 
@@ -94,7 +95,7 @@ export class DataService {
 		return this.http.get(this.assetUrl)
 						.toPromise()
 						.then(res => <AssetClassification[]> res.json().data)
-						.then(data => { 
+						.then(data => {
 							this.result = [];
 							console.log("this is the Asset service");
 							for(var i=0; i< data.length; i++){

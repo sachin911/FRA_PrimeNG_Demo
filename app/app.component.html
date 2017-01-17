@@ -14,7 +14,7 @@
     </p-dropdown> -->
 
 <UL class="custom-unordered-list">
-    <LI>
+<!--     <LI>
         <span class="first">Clients :</span>
         <p-dropdown [options]="clients" [(ngModel)]="selectedClient"></p-dropdown>
     </LI>
@@ -25,7 +25,7 @@
     <li>
     <span class="first">Asset Classification : </span>
     <p-dropdown [options]="assets" [(ngModel)]="selectedAsset"></p-dropdown>
-    </li>
+    </li> -->
     <li>
     <span class="first">Industry Order : </span>
     <p-dropdown [options]="industry" [(ngModel)]="selectedIndustry"></p-dropdown>
@@ -33,11 +33,20 @@
 </UL>
 
 
+<!-- Anchors (links) -->
+  <a href="about.html" class="button">Learn More</a>
+  <a href="#features" class="button">View All Features</a>
+
+  <!-- Buttons (actions) -->
+  <button type="button" class="success button">Save</button>
+  <button type="button" class="alert button">Delete</button>
 
 
-<p>Selected Client: {{selectedClient ? selectedClient.name : 'none'}}</p>
+
+
+<!-- <p>Selected Client: {{selectedClient ? selectedClient.name : 'none'}}</p>
 <p>Selected Disclosure: {{selectedDisclosure ? selectedDisclosure.type : 'none'}}</p>
-<p>Selected Asset: {{selectedAsset ? selectedAsset.name : 'none'}}</p>
+<p>Selected Asset: {{selectedAsset ? selectedAsset.name : 'none'}}</p> -->
 <p>Selected Industry: {{selectedIndustry ? selectedIndustry.industry_name: 'none'}}</p>
 
 <div id="container">
